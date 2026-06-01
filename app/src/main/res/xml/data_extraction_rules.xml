@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Sample data extraction rules.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" fpath="."/>
+        <exclude domain="database" fpath="."/>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" fpath="."/>
+        <exclude domain="database" fpath="."/>
+    </device-transfer>
+</data-extraction-rules>
