@@ -63,8 +63,7 @@ dependencies {
 
     // MapLibre Compose (Free mapping alternative)
     implementation("org.maplibre.gl:android-sdk:11.4.0")
-    //implementation("org.ramani:maplibre-compose:1.0.0")
-    implementation("org.ramani-maps:ramani-maplibre:0.12.0")
+    implementation("org.maplibre.gl:android-plugin-annotation-v9:3.0.2")
 
     // Google Play Services for Location (GPS)
     implementation("com.google.android.gms:play-services-location:21.3.0")
