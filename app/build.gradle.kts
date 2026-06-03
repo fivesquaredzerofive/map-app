@@ -61,9 +61,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
 
-    // MapLibre Compose (Free mapping alternative)
-    implementation("org.maplibre.gl:android-sdk:11.4.0")
-    implementation("org.maplibre.gl:android-plugin-annotation-v9:3.0.2")
+    // MapLibre (Free mapping alternative)
+    implementation("org.maplibre.gl:android-sdk-opengl:13.0.2")
 
     // Google Play Services for Location (GPS)
     implementation("com.google.android.gms:play-services-location:21.3.0")

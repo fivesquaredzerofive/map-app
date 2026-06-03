@@ -9,11 +9,15 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.interactivemaps.app.data.MarkerEntity
 import com.interactivemaps.app.ui.components.DrawerContent
 import com.interactivemaps.app.ui.screens.MapScreen
 import com.interactivemaps.app.ui.screens.SettingsScreen
@@ -50,6 +54,8 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
                 val scope = rememberCoroutineScope()
+                var focusedMarker by remember { mutableStateOf<MarkerEntity?>(null) }
+                var markerFocusRequestId by remember { mutableStateOf(0) }
                 
                 NavHost(navController = navController, startDestination = "map") {
                     composable("map") {
@@ -61,7 +67,8 @@ class MainActivity : ComponentActivity() {
                                 DrawerContent(
                                     markers = markers,
                                     onMarkerClick = { marker ->
-                                        // Optional: trigger map camera pan
+                                        focusedMarker = marker
+                                        markerFocusRequestId += 1
                                         scope.launch { drawerState.close() }
                                     },
                                     onMarkerDelete = { marker ->
@@ -76,6 +83,8 @@ class MainActivity : ComponentActivity() {
                         ) {
                             MapScreen(
                                 viewModel = mapViewModel,
+                                focusedMarker = focusedMarker,
+                                markerFocusRequestId = markerFocusRequestId,
                                 onMenuClick = {
                                     scope.launch { drawerState.open() }
                                 }

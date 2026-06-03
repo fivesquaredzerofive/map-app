@@ -26,7 +26,7 @@ class MapViewModel(
     val currentMarkerColor: StateFlow<Long> = settingsDataStore.markerColorFlow
         .stateIn(
             scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
+            started = SharingStarted.Eagerly,
             initialValue = SettingsDataStore.DEFAULT_COLOR
         )
 
