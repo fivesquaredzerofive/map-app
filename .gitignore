@@ -1,0 +1,48 @@
+# Compiled class files
+*.class
+
+# Logs
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+# Gradle and Kotlin
+.gradle/
+.kotlin/
+build/
+**/build/
+
+# Local Android/IDE state
+local.properties
+.idea/
+*.iml
+
+# Android generated files
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing and packaged artifacts
+*.jks
+*.keystore
+*.apk
+*.aab
+
+google-services.json
